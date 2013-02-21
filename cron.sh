@@ -9,7 +9,8 @@
 #curl -X PUT http://pi:raspberry@bell.local:5984/infrastructure
 
 KEY=pi:raspberry
-URL=bell.local:5984
+HOSTNAME=`/bin/hostname`
+URL=$HOSTNAME.local:5984
 SERVER=`/usr/bin/curl -sX GET http://$KEY@$URL/whois/me | /usr/bin/cut -d\" -f12`
 DATABASE=infrastructure
 DOCUMENT=`/usr/bin/curl -sX GET http://$KEY@$URL/_uuids | /usr/bin/cut -d\" -f4`
